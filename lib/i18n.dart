@@ -17,15 +17,14 @@ class I18n {
   // }
 
   // Static member to have a simple access to the delegate from the MaterialApp
-  static const LocalizationsDelegate<I18n> delegate =
-  _I18nDelegate();
+  static const LocalizationsDelegate<I18n> delegate = _I18nDelegate();
 
   Map<String, dynamic> _localizedStrings;
 
   Future<bool> load() async {
     // Load the language JSON file from the "lang" folder
     String jsonString =
-    await rootBundle.loadString('lib/lang/${locale.languageCode}.json');
+        await rootBundle.loadString('lib/lang/${locale.languageCode}.json');
     _localizedStrings = json.decode(jsonString);
 
     // _localizedStrings = jsonMap.map((key, value) {
@@ -39,11 +38,11 @@ class I18n {
       final int pluralValue) {
     final I18n currentInstance = _retrieveCurrentInstance(context);
     final Map<String, dynamic> decodedSubMap =
-    _calculateSubmap(currentInstance._localizedStrings, translationKey);
+        _calculateSubmap(currentInstance._localizedStrings, translationKey);
     final String correctKey =
-    _findCorrectKey(decodedSubMap, translationKey, pluralValue);
+        _findCorrectKey(decodedSubMap, translationKey, pluralValue);
     final String parameterName =
-    _findParameterName(decodedSubMap[correctKey.split(".").last]);
+        _findParameterName(decodedSubMap[correctKey.split(".").last]);
     return translate(context, correctKey,
         Map.fromIterables([parameterName], [pluralValue.toString()]));
   }
@@ -67,7 +66,8 @@ class I18n {
   }
 
   // This method will be called from every widget which needs a localized text
-  static String translate(final BuildContext context, final String key, [final Map<String, String> translationParams]) {
+  static String translate(final BuildContext context, final String key,
+      [final Map<String, String> translationParams]) {
     String translation = _translateWithKeyFallback(context, key);
     if (translationParams != null) {
       translation = _replaceParams(translation, translationParams);
@@ -75,8 +75,8 @@ class I18n {
     return translation;
   }
 
-
-  static String _translateWithKeyFallback(final BuildContext context, final String key) {
+  static String _translateWithKeyFallback(
+      final BuildContext context, final String key) {
     final Map<String, dynamic> decodedStrings =
         _retrieveCurrentInstance(context)._localizedStrings;
     String translation = _decodeFromMap(decodedStrings, key);
@@ -103,9 +103,9 @@ class I18n {
     final List<String> translationKeySplitted = translationKey.split(".");
     translationKeySplitted.removeLast();
     translationKeySplitted.forEach((listKey) => decodedMap =
-    decodedMap != null && decodedMap[listKey] != null
-        ? decodedMap[listKey]
-        : new Map());
+        decodedMap != null && decodedMap[listKey] != null
+            ? decodedMap[listKey]
+            : new Map());
     return decodedMap;
   }
 
@@ -130,8 +130,7 @@ class I18n {
 
 // LocalizationsDelegate is a factory for a set of localized resources
 // In this case, the localized strings will be gotten in an AppLocalizations object
-class _I18nDelegate
-    extends LocalizationsDelegate<I18n> {
+class _I18nDelegate extends LocalizationsDelegate<I18n> {
   // This delegate instance will never change (it doesn't even have fields!)
   // It can provide a constant constructor.
   const _I18nDelegate();

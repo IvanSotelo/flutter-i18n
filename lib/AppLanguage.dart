@@ -16,7 +16,6 @@ class AppLanguage extends ChangeNotifier {
     return Null;
   }
 
-
   void changeLanguage(Locale type) async {
     var prefs = await SharedPreferences.getInstance();
     if (_appLocale == type) {

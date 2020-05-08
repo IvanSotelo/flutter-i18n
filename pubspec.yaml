@@ -1,7 +1,8 @@
-name: i18n
+name: i18n_translate
 description: Simple internationalization tool for Dart and Flutter, based on JSON files
-version: 0.0.1
-author: Ivan Sotelo
+version: 0.1.1
+repository: https://github.com/IvanSotelo/flutter-i18n/
+issue_tracker: https://github.com/IvanSotelo/flutter-i18n/issues
 homepage: http://www.ivansotelo.me/
 
 environment:

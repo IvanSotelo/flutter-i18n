@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 // import 'package:flutter_test/flutter_test.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 
-import 'package:i18n/i18n.dart';
-import 'package:i18n/AppLanguage.dart';
+import 'package:i18n_translate/i18n.dart';
+import 'package:i18n_translate/AppLanguage.dart';
 
 class TestWidget extends StatelessWidget {
   @override
